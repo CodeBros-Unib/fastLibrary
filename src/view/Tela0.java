@@ -44,9 +44,9 @@ public class Tela0 extends javax.swing.JFrame {
         jPanel1.add(label);
         label.setBounds(20, 440, 510, 30);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/sa.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/sa.jpg"))); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(100, 10, 360, 426);
+        jLabel1.setBounds(100, 10, 360, 430);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 560, 500);
