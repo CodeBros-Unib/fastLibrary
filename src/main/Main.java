@@ -12,6 +12,6 @@ public class Main {
     public static void main(String[] args) {
         new view.Tela0().setVisible(true);
     }
-    //coloquei comentario para teste
+    
 }
 
