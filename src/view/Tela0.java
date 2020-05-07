@@ -7,7 +7,7 @@ package view;
 
 /**
  *
- * @author rosan
+ * @author jason
  */
 public class Tela0 extends javax.swing.JFrame {
 
@@ -28,25 +28,31 @@ public class Tela0 extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        progress = new javax.swing.JProgressBar();
+        label = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 560, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(null);
+        jPanel1.add(progress);
+        progress.setBounds(20, 470, 510, 20);
+
+        label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jPanel1.add(label);
+        label.setBounds(20, 440, 510, 30);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/sa.jpg"))); // NOI18N
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(100, 10, 360, 426);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 560, 400);
+        jPanel1.setBounds(0, 0, 560, 500);
 
-        pack();
+        setSize(new java.awt.Dimension(575, 540));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -85,6 +91,9 @@ public class Tela0 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    javax.swing.JLabel label;
+    javax.swing.JProgressBar progress;
     // End of variables declaration//GEN-END:variables
 }
