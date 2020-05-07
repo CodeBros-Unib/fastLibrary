@@ -5,6 +5,10 @@
  */
 package view;
 
+import static java.lang.Thread.sleep;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author jason
@@ -16,6 +20,42 @@ public class Tela0 extends javax.swing.JFrame {
      */
     public Tela0() {
         initComponents();
+        
+        new Thread(){
+        
+        public void run() {
+        
+            for (int i=0; i<=100; i++){
+                try {
+                    sleep(40); 
+                        progress.setValue(i);
+                        
+                        if(i <= 10){                       
+                            label.setText("Fazendo a conexao com o banco de dados");
+                            sleep(30);                                                                          
+                        }else if (i <= 30){
+                            label.setText("Carregando o sistema");
+                            sleep(30);  
+                        } else if (i <= 70){
+                            label.setText("Carregamento quase completo");  
+                            sleep(30);
+                        } else if (i <= 99){
+                            label.setText("Carregamento completo. Seu programa sera iniciado.");  
+                            sleep(30);     
+                        }else{
+                            label.setText("Carregamento completo. Seu programa sera iniciado.");                        
+                            sleep(50);
+                            dispose();
+                            new view.Tela1().setVisible(true);
+                        }
+                         
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(Tela0.class.getName()).log(Level.SEVERE, null, ex);
+                    }       
+        }        
+        }
+        
+        }.start();
     }
 
     /**
