@@ -77,6 +77,8 @@ public class Tela0 extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
+
+        progress.setForeground(new java.awt.Color(5, 38, 76));
         jPanel1.add(progress);
         progress.setBounds(20, 470, 510, 20);
 
