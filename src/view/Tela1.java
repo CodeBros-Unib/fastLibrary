@@ -5,6 +5,8 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author rosan
@@ -83,7 +85,21 @@ public class Tela1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        // TODO add your handling code here:
+        if (user.getText().equals ("usuario") && password.getText().equals ("1234")){
+    
+    Tela2 tela = new Tela2();
+tela.setVisible (true);
+
+
+
+
+}else{
+    JOptionPane.showMessageDialog(null," Acesso Negado, tente novamente! ");
+    Tela1 tela = new Tela1();
+tela.setVisible (true);
+}
+
+dispose();
     }//GEN-LAST:event_loginActionPerformed
 
     /**
