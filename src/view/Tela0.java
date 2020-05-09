@@ -75,6 +75,7 @@ public class Tela0 extends javax.swing.JFrame {
         imgBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -111,7 +112,7 @@ public class Tela0 extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 750, 500);
 
-        setSize(new java.awt.Dimension(760, 530));
+        setSize(new java.awt.Dimension(750, 500));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
