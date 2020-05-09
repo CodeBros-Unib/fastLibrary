@@ -47,7 +47,7 @@ public class Tela1 extends javax.swing.JFrame {
 
         user.setText(" ");
         jPanel1.add(user);
-        user.setBounds(220, 110, 190, 20);
+        user.setBounds(240, 110, 190, 20);
 
         login.setText("LOGIN");
         login.addActionListener(new java.awt.event.ActionListener() {
@@ -66,12 +66,12 @@ public class Tela1 extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setText("Usuário:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(150, 110, 70, 22);
+        jLabel4.setBounds(150, 110, 90, 22);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("FastLibrary");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(270, 0, 130, 30);
+        jLabel2.setBounds(270, 0, 180, 30);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/telaa1.gif"))); // NOI18N
         jPanel1.add(jLabel3);
