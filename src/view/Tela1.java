@@ -36,9 +36,11 @@ public class Tela1 extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(null);
 
         jPanel1.setLayout(null);
@@ -73,6 +75,15 @@ public class Tela1 extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(270, 0, 180, 30);
 
+        jButton1.setText("Sair");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(0, 470, 73, 23);
+
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/telaa1.gif"))); // NOI18N
         jPanel1.add(jLabel3);
         jLabel3.setBounds(0, 0, 670, 500);
@@ -80,27 +91,17 @@ public class Tela1 extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 670, 500);
 
-        setSize(new java.awt.Dimension(684, 535));
+        setSize(new java.awt.Dimension(668, 496));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        if (user.getText().equals("usuario") && password.getText().equals("1234")){
-    
-    Tela2 tela = new Tela2();
-tela.setVisible (true);
-
-
-
-
-}else{
-    JOptionPane.showMessageDialog(null," Acesso Negado, tente novamente! ");
-    Tela1 tela = new Tela1();
-tela.setVisible (true);
-}
-
-dispose();
+  
     }//GEN-LAST:event_loginActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+  System.exit(1);      // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,6 +139,7 @@ dispose();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
