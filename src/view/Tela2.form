@@ -55,36 +55,36 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="emprestimo">
           <Properties>
-            <Property name="text" type="java.lang.String" value="teste"/>
+            <Property name="text" type="java.lang.String" value="EMPR&#xc9;STIMO DE UM LIVRO"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="170" y="160" width="73" height="30"/>
+              <AbsoluteConstraints x="50" y="160" width="190" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="cadlivro">
           <Properties>
-            <Property name="text" type="java.lang.String" value="teste"/>
+            <Property name="text" type="java.lang.String" value="CADASTRAR LIVRO"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadlivroActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="260" y="160" width="80" height="30"/>
+              <AbsoluteConstraints x="250" y="160" width="170" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
+        <Component class="javax.swing.JButton" name="caduser">
           <Properties>
-            <Property name="text" type="java.lang.String" value="teste"/>
+            <Property name="text" type="java.lang.String" value="CADASTRAR USU&#xc1;RIO"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="360" y="160" width="80" height="30"/>
+              <AbsoluteConstraints x="430" y="160" width="160" height="30"/>
             </Constraint>
           </Constraints>
         </Component>

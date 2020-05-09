@@ -29,9 +29,9 @@ public class Tela2 extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        emprestimo = new javax.swing.JButton();
+        cadlivro = new javax.swing.JButton();
+        caduser = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -46,22 +46,22 @@ public class Tela2 extends javax.swing.JFrame {
         jPanel1.add(jLabel1);
         jLabel1.setBounds(250, 10, 170, 30);
 
-        jButton1.setText("teste");
-        jPanel1.add(jButton1);
-        jButton1.setBounds(170, 160, 73, 30);
+        emprestimo.setText("EMPRÉSTIMO DE UM LIVRO");
+        jPanel1.add(emprestimo);
+        emprestimo.setBounds(50, 160, 190, 30);
 
-        jButton2.setText("teste");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        cadlivro.setText("CADASTRAR LIVRO");
+        cadlivro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                cadlivroActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2);
-        jButton2.setBounds(260, 160, 80, 30);
+        jPanel1.add(cadlivro);
+        cadlivro.setBounds(250, 160, 170, 30);
 
-        jButton3.setText("teste");
-        jPanel1.add(jButton3);
-        jButton3.setBounds(360, 160, 80, 30);
+        caduser.setText("CADASTRAR USUÁRIO");
+        jPanel1.add(caduser);
+        caduser.setBounds(430, 160, 160, 30);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/menuu.gif"))); // NOI18N
         jPanel1.add(jLabel2);
@@ -79,9 +79,9 @@ public class Tela2 extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void cadlivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadlivroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_cadlivroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -119,9 +119,9 @@ public class Tela2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton cadlivro;
+    private javax.swing.JButton caduser;
+    private javax.swing.JButton emprestimo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
