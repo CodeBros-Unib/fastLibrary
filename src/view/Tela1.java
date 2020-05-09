@@ -100,7 +100,17 @@ public class Tela1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-  
+        String validaUser = user.getText();
+        String validaPassword = password.getText();
+        
+        if(!validaUser.equals("usuario" ) && !validaPassword.equals("123456")){
+            JOptionPane.showMessageDialog(null," Acesso Negado, tente novamente! ");
+            new Tela1().setVisible(true);
+        }else{
+            new Tela2().setVisible(true);
+        }
+
+        dispose();
     }//GEN-LAST:event_loginActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
