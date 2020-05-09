@@ -44,7 +44,9 @@ public class Tela2 extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("FastLibrary");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(250, 10, 130, 30);
+        jLabel1.setBounds(250, 10, 170, 30);
+
+        jButton1.setText("teste");
         jPanel1.add(jButton1);
         jButton1.setBounds(170, 160, 73, 30);
 
@@ -56,6 +58,8 @@ public class Tela2 extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2);
         jButton2.setBounds(260, 160, 80, 30);
+
+        jButton3.setText("teste");
         jPanel1.add(jButton3);
         jButton3.setBounds(360, 160, 80, 30);
 
@@ -66,7 +70,7 @@ public class Tela2 extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("O que você deseja fazer?");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(210, 90, 200, 22);
+        jLabel3.setBounds(210, 90, 250, 22);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 670, 510);
