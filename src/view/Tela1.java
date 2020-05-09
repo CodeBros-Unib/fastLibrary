@@ -48,6 +48,11 @@ public class Tela1 extends javax.swing.JFrame {
         user.setBounds(220, 110, 190, 20);
 
         login.setText("LOGIN");
+        login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginActionPerformed(evt);
+            }
+        });
         jPanel1.add(login);
         login.setBounds(250, 230, 110, 23);
 
@@ -67,7 +72,6 @@ public class Tela1 extends javax.swing.JFrame {
         jLabel2.setBounds(270, 0, 130, 30);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/telaa1.gif"))); // NOI18N
-        jLabel3.setText("Usuário");
         jPanel1.add(jLabel3);
         jLabel3.setBounds(0, 0, 670, 500);
 
@@ -77,6 +81,10 @@ public class Tela1 extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(684, 535));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loginActionPerformed
 
     /**
      * @param args the command line arguments
