@@ -28,7 +28,7 @@ public class Tela0 extends javax.swing.JFrame {
             for (int i=0; i<=100; i++){
                 try {
                     sleep(40); 
-                        labelProgress.setText(String.valueOf(i));
+                        labelProgress.setText(String.valueOf(i) + "%");
                         
                         if(i <= 10){                       
                             label.setText("Fazendo a conexao com o banco de dados");
@@ -40,10 +40,10 @@ public class Tela0 extends javax.swing.JFrame {
                             label.setText("Carregamento quase completo");  
                             sleep(30);
                         } else if (i <= 99){
-                            label.setText("Carregamento completo. Seu programa sera iniciado.");  
+                            label.setText("Carregamento completo");  
                             sleep(30);     
                         }else{
-                            label.setText("Carregamento completo. Seu programa sera iniciado.");                        
+                            label.setText("Seu programa será iniciado.");                        
                             sleep(50);
                             dispose();
                             new view.Tela1().setVisible(true);
@@ -68,37 +68,50 @@ public class Tela0 extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        progress = new javax.swing.JProgressBar();
-        label = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         labelProgress = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        label = new javax.swing.JLabel();
+        loading = new javax.swing.JLabel();
+        imgBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
 
-        progress.setForeground(new java.awt.Color(5, 38, 76));
-        jPanel1.add(progress);
-        progress.setBounds(20, 470, 510, 20);
-
-        label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jPanel1.add(label);
-        label.setBounds(20, 440, 510, 30);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/sa.jpg"))); // NOI18N
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(100, 10, 360, 430);
-
+        labelProgress.setBackground(new java.awt.Color(34, 34, 34));
+        labelProgress.setFont(new java.awt.Font("Liberation Sans", 1, 12)); // NOI18N
         labelProgress.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel1.add(labelProgress);
-        labelProgress.setBounds(240, 470, 80, 20);
+        labelProgress.setBounds(620, 390, 50, 40);
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(20, 40, 440, 110);
+
+        label.setBackground(new java.awt.Color(34, 34, 34));
+        label.setFont(new java.awt.Font("Liberation Sans", 1, 20)); // NOI18N
+        label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(label);
+        label.setBounds(0, 390, 390, 40);
+
+        loading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        loading.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/loader.gif"))); // NOI18N
+        jPanel1.add(loading);
+        loading.setBounds(580, 350, 130, 120);
+
+        imgBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bookBackground.jpg"))); // NOI18N
+        imgBackground.setText("jLabel2");
+        jPanel1.add(imgBackground);
+        imgBackground.setBounds(0, 0, 750, 500);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 560, 500);
+        jPanel1.setBounds(0, 0, 750, 500);
 
-        pack();
+        setSize(new java.awt.Dimension(760, 530));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -138,10 +151,11 @@ public class Tela0 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel imgBackground;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     javax.swing.JLabel label;
     private javax.swing.JLabel labelProgress;
-    javax.swing.JProgressBar progress;
+    private javax.swing.JLabel loading;
     // End of variables declaration//GEN-END:variables
 }

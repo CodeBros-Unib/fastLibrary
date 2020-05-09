@@ -85,7 +85,7 @@ public class Tela1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        if (user.getText().equals ("usuario") && password.getText().equals ("1234")){
+        if (user.getText().equals("usuario") && password.getText().equals("1234")){
     
     Tela2 tela = new Tela2();
 tela.setVisible (true);
