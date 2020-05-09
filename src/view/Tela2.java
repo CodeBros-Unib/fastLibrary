@@ -48,6 +48,7 @@ public class Tela2 extends javax.swing.JFrame {
         jPanel1.add(jButton1);
         jButton1.setBounds(170, 160, 73, 30);
 
+        jButton2.setText("teste");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -70,7 +71,8 @@ public class Tela2 extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 670, 510);
 
-        pack();
+        setSize(new java.awt.Dimension(688, 543));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
