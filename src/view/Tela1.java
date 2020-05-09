@@ -28,31 +28,53 @@ public class Tela1 extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        password = new javax.swing.JPasswordField();
+        user = new javax.swing.JTextField();
+        login = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/29302.png"))); // NOI18N
+        jPanel1.setLayout(null);
+        jPanel1.add(password);
+        password.setBounds(220, 170, 190, 20);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        user.setText(" ");
+        jPanel1.add(user);
+        user.setBounds(220, 110, 190, 20);
+
+        login.setText("ENTRAR");
+        jPanel1.add(login);
+        login.setBounds(250, 230, 110, 23);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("Senha:");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(154, 170, 60, 22);
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel4.setText("Usuário:");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(150, 110, 70, 22);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel2.setText("FastLibrary");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(270, 0, 130, 30);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/telaa1.gif"))); // NOI18N
+        jLabel3.setText("Usuário");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(0, 0, 670, 500);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 600, 490);
+        jPanel1.setBounds(0, 0, 670, 500);
 
-        setSize(new java.awt.Dimension(612, 535));
+        setSize(new java.awt.Dimension(684, 535));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -93,6 +115,12 @@ public class Tela1 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton login;
+    private javax.swing.JPasswordField password;
+    private javax.swing.JTextField user;
     // End of variables declaration//GEN-END:variables
 }
