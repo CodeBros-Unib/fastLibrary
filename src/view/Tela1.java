@@ -43,12 +43,13 @@ public class Tela1 extends javax.swing.JFrame {
 
         jPanel1.setLayout(null);
         jPanel1.add(password);
-        password.setBounds(220, 170, 190, 20);
+        password.setBounds(300, 160, 190, 30);
 
         user.setText(" ");
         jPanel1.add(user);
-        user.setBounds(240, 110, 190, 20);
+        user.setBounds(300, 110, 190, 30);
 
+        login.setFont(new java.awt.Font("Liberation Mono", 1, 15)); // NOI18N
         login.setText("LOGIN");
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,22 +57,25 @@ public class Tela1 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(login);
-        login.setBounds(250, 230, 110, 23);
+        login.setBounds(270, 240, 150, 40);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Senha:");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(154, 170, 60, 22);
+        jLabel1.setBounds(190, 160, 100, 30);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Usuário:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(150, 110, 90, 22);
+        jLabel4.setBounds(190, 110, 100, 30);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel2.setText("FastLibrary");
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(270, 0, 180, 30);
+        jLabel2.setBounds(150, 10, 390, 70);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/telaa1.gif"))); // NOI18N
         jPanel1.add(jLabel3);
@@ -144,7 +148,7 @@ dispose();
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton login;
-    private javax.swing.JPasswordField password;
-    private javax.swing.JTextField user;
+    public static javax.swing.JPasswordField password;
+    public static javax.swing.JTextField user;
     // End of variables declaration//GEN-END:variables
 }
