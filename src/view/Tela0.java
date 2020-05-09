@@ -28,7 +28,7 @@ public class Tela0 extends javax.swing.JFrame {
             for (int i=0; i<=100; i++){
                 try {
                     sleep(40); 
-                        progress.setValue(i);
+                        labelProgress.setText(String.valueOf(i));
                         
                         if(i <= 10){                       
                             label.setText("Fazendo a conexao com o banco de dados");
@@ -52,7 +52,7 @@ public class Tela0 extends javax.swing.JFrame {
                     } catch (InterruptedException ex) {
                         Logger.getLogger(Tela0.class.getName()).log(Level.SEVERE, null, ex);
                     }       
-        }        
+            }        
         }
         
         }.start();
@@ -71,6 +71,7 @@ public class Tela0 extends javax.swing.JFrame {
         progress = new javax.swing.JProgressBar();
         label = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        labelProgress = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -90,10 +91,14 @@ public class Tela0 extends javax.swing.JFrame {
         jPanel1.add(jLabel1);
         jLabel1.setBounds(100, 10, 360, 430);
 
+        labelProgress.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(labelProgress);
+        labelProgress.setBounds(240, 470, 80, 20);
+
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 560, 500);
 
-        setSize(new java.awt.Dimension(575, 540));
+        pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -136,6 +141,7 @@ public class Tela0 extends javax.swing.JFrame {
     javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     javax.swing.JLabel label;
+    private javax.swing.JLabel labelProgress;
     javax.swing.JProgressBar progress;
     // End of variables declaration//GEN-END:variables
 }
