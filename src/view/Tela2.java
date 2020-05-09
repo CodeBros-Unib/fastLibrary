@@ -34,8 +34,11 @@ public class Tela2 extends javax.swing.JFrame {
         caduser = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 0));
@@ -47,6 +50,11 @@ public class Tela2 extends javax.swing.JFrame {
         jLabel1.setBounds(250, 10, 170, 30);
 
         emprestimo.setText("EMPRÉSTIMO DE UM LIVRO");
+        emprestimo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emprestimoActionPerformed(evt);
+            }
+        });
         jPanel1.add(emprestimo);
         emprestimo.setBounds(50, 160, 190, 30);
 
@@ -72,16 +80,47 @@ public class Tela2 extends javax.swing.JFrame {
         jPanel1.add(jLabel3);
         jLabel3.setBounds(210, 90, 250, 22);
 
+        jButton1.setText("Sair");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(0, 480, 51, 23);
+
+        jButton2.setText("Voltar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2);
+        jButton2.setBounds(80, 480, 61, 23);
+
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 670, 510);
 
-        setSize(new java.awt.Dimension(688, 543));
+        setSize(new java.awt.Dimension(672, 504));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cadlivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadlivroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cadlivroActionPerformed
+
+    private void emprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emprestimoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emprestimoActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+System.exit(1);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+Tela1 Tela1 = new Tela1();
+Tela1.setVisible (true);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -122,6 +161,8 @@ public class Tela2 extends javax.swing.JFrame {
     private javax.swing.JButton cadlivro;
     private javax.swing.JButton caduser;
     private javax.swing.JButton emprestimo;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
