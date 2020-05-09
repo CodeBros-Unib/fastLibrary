@@ -47,7 +47,7 @@ public class Tela1 extends javax.swing.JFrame {
         jPanel1.add(user);
         user.setBounds(220, 110, 190, 20);
 
-        login.setText("ENTRAR");
+        login.setText("LOGIN");
         jPanel1.add(login);
         login.setBounds(250, 230, 110, 23);
 
