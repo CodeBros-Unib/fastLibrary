@@ -28,14 +28,22 @@ public class Tela4 extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        btnEmprestar = new javax.swing.JButton();
+        lblCodigo2 = new javax.swing.JLabel();
+        txtCodigo2 = new javax.swing.JTextField();
+        lblTitulo = new javax.swing.JLabel();
+        txtTitulo = new javax.swing.JTextField();
+        lblStatus = new javax.swing.JLabel();
+        txtStatus = new javax.swing.JTextField();
+        txtNome2 = new javax.swing.JTextField();
+        lblNome = new javax.swing.JLabel();
+        lblCpf2 = new javax.swing.JLabel();
+        txtCpf2 = new javax.swing.JTextField();
+        btnVoltar = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -44,42 +52,110 @@ public class Tela4 extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 204, 0));
         jPanel1.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("FastLibrary");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(250, 10, 190, 30);
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Nome do livro:");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(60, 90, 110, 17);
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(160, 90, 220, 20);
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setText("Ano de publicação:");
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/telaa3.gif"))); // NOI18N
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(60, 130, 140, 17);
-        jPanel1.add(jTextField2);
-        jTextField2.setBounds(180, 130, 200, 20);
+        jLabel3.setBounds(550, 370, 160, 150);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Autor:");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(60, 180, 80, 17);
-        jPanel1.add(jTextField3);
-        jTextField3.setBounds(110, 180, 270, 20);
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png")));
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(20, 20, 460, 60);
 
-        jButton1.setText("CADASTRAR");
-        jPanel1.add(jButton1);
-        jButton1.setBounds(270, 240, 110, 23);
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(null);
+
+        btnEmprestar.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        btnEmprestar.setForeground(new java.awt.Color(106, 173, 198));
+        btnEmprestar.setText("EMPRESTAR");
+        btnEmprestar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(106, 173, 198), 2));
+        btnEmprestar.setContentAreaFilled(false);
+        btnEmprestar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEmprestarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnEmprestar);
+        btnEmprestar.setBounds(250, 280, 160, 30);
+
+        lblCodigo2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblCodigo2.setForeground(new java.awt.Color(34, 34, 34));
+        lblCodigo2.setText("Código do Livro:");
+        jPanel2.add(lblCodigo2);
+        lblCodigo2.setBounds(20, 140, 130, 17);
+        jPanel2.add(txtCodigo2);
+        txtCodigo2.setBounds(20, 160, 140, 30);
+
+        lblTitulo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblTitulo.setForeground(new java.awt.Color(34, 34, 34));
+        lblTitulo.setText("Título:");
+        jPanel2.add(lblTitulo);
+        lblTitulo.setBounds(180, 140, 180, 17);
+        jPanel2.add(txtTitulo);
+        txtTitulo.setBounds(180, 160, 270, 30);
+
+        lblStatus.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblStatus.setForeground(new java.awt.Color(34, 34, 34));
+        lblStatus.setText("Status:");
+        jPanel2.add(lblStatus);
+        lblStatus.setBounds(470, 140, 120, 17);
+        jPanel2.add(txtStatus);
+        txtStatus.setBounds(470, 160, 150, 30);
+        jPanel2.add(txtNome2);
+        txtNome2.setBounds(210, 230, 330, 30);
+
+        lblNome.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblNome.setForeground(new java.awt.Color(34, 34, 34));
+        lblNome.setText("Nome:");
+        jPanel2.add(lblNome);
+        lblNome.setBounds(210, 210, 70, 17);
+
+        lblCpf2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblCpf2.setForeground(new java.awt.Color(34, 34, 34));
+        lblCpf2.setText("CPF do Solicitante:");
+        jPanel2.add(lblCpf2);
+        lblCpf2.setBounds(20, 210, 150, 17);
+        jPanel2.add(txtCpf2);
+        txtCpf2.setBounds(20, 230, 170, 30);
+
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(30, 170, 640, 320);
+
+        btnVoltar.setBackground(new java.awt.Color(255, 255, 255));
+        btnVoltar.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        btnVoltar.setForeground(new java.awt.Color(106, 173, 198));
+        btnVoltar.setText("VOLTAR");
+        btnVoltar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(106, 173, 198), 2));
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnVoltar);
+        btnVoltar.setBounds(570, 20, 110, 60);
+
+        jLabel7.setFont(new java.awt.Font("Ubuntu", 1, 22)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Cadastro de Livro");
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(0, 110, 700, 50);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 660, 500);
+        jPanel1.setBounds(0, 0, 700, 520);
 
-        setSize(new java.awt.Dimension(662, 497));
+        setSize(new java.awt.Dimension(700, 520));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEmprestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmprestarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEmprestarActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        this.dispose();
+        Tela2 Tela2 = new Tela2();
+        Tela2.setVisible (true);
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -117,14 +193,22 @@ public class Tela4 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnEmprestar;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblCodigo2;
+    private javax.swing.JLabel lblCpf2;
+    private javax.swing.JLabel lblNome;
+    private javax.swing.JLabel lblStatus;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JTextField txtCodigo2;
+    private javax.swing.JTextField txtCpf2;
+    private javax.swing.JTextField txtNome2;
+    private javax.swing.JTextField txtStatus;
+    private javax.swing.JTextField txtTitulo;
     // End of variables declaration//GEN-END:variables
 }

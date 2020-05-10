@@ -2,7 +2,7 @@ package controller;
 
 import javax.swing.JOptionPane;
 
-public class Action {
+public class LoginController {
     public static void validaUser() {
         String user = view.Tela1.user.getText();
         String password = view.Tela1.password.getText();

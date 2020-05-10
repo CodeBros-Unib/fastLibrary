@@ -5,7 +5,7 @@
  */
 package view;
 
-import controller.Action;
+import controller.LoginController;
 
 /**
  *
@@ -100,7 +100,7 @@ public class Tela1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        Action.validaUser();
+        LoginController.validaUser();
         this.dispose();
     }//GEN-LAST:event_loginActionPerformed
 
