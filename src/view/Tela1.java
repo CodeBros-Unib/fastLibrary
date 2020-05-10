@@ -5,7 +5,7 @@
  */
 package view;
 
-import model.Action;
+import controller.Action;
 
 /**
  *
