@@ -4,7 +4,6 @@ import database.connection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import javax.swing.JOptionPane;
 import model.User;
 
 public class UserDao {
@@ -24,14 +23,12 @@ public class UserDao {
             
             stmt.setString(1, objUser.getCpf());
             stmt.setString(2, objUser.getNome());
-            stmt.setString(3, objUser.getEndereco());
-            stmt.setString(4, objUser.getSexo());
-            stmt.setString(5, objUser.getIdade());
+            stmt.setString(3, objUser.getIdade());
+            stmt.setString(4, objUser.getEndereco());
+            stmt.setString(5, objUser.getSexo());
             
             stmt.execute();
             stmt.close();
-            
-            JOptionPane.showMessageDialog(null, "Usuário cadastrado");
         } catch (SQLException exception) {
             throw new RuntimeException(exception);
         }

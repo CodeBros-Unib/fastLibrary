@@ -1,6 +1,7 @@
 package view;
 
 import dao.UserDao;
+import javax.swing.JOptionPane;
 import model.User;
 
 public class Tela4 extends javax.swing.JFrame {
@@ -27,10 +28,10 @@ public class Tela4 extends javax.swing.JFrame {
         txtNome = new javax.swing.JTextField();
         lblStatus = new javax.swing.JLabel();
         txtEndereco = new javax.swing.JTextField();
-        txtSexo = new javax.swing.JTextField();
         lblNome = new javax.swing.JLabel();
         lblCpf2 = new javax.swing.JLabel();
         txtIdade = new javax.swing.JTextField();
+        txtSexo = new javax.swing.JComboBox();
         btnVoltar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
@@ -90,14 +91,12 @@ public class Tela4 extends javax.swing.JFrame {
         lblStatus.setBounds(310, 90, 120, 17);
         jPanel2.add(txtEndereco);
         txtEndereco.setBounds(310, 110, 310, 30);
-        jPanel2.add(txtSexo);
-        txtSexo.setBounds(210, 110, 80, 30);
 
         lblNome.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblNome.setForeground(new java.awt.Color(34, 34, 34));
         lblNome.setText("Sexo:");
         jPanel2.add(lblNome);
-        lblNome.setBounds(210, 90, 70, 17);
+        lblNome.setBounds(180, 90, 100, 17);
 
         lblCpf2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblCpf2.setForeground(new java.awt.Color(34, 34, 34));
@@ -105,7 +104,11 @@ public class Tela4 extends javax.swing.JFrame {
         jPanel2.add(lblCpf2);
         lblCpf2.setBounds(20, 90, 150, 17);
         jPanel2.add(txtIdade);
-        txtIdade.setBounds(20, 110, 170, 30);
+        txtIdade.setBounds(20, 110, 140, 30);
+
+        txtSexo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Masculino", "Feminino" }));
+        jPanel2.add(txtSexo);
+        txtSexo.setBounds(180, 110, 110, 30);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(30, 170, 640, 220);
@@ -142,9 +145,14 @@ public class Tela4 extends javax.swing.JFrame {
         objUser.setNome(txtNome.getText());
         objUser.setIdade(txtIdade.getText());
         objUser.setEndereco(txtEndereco.getText());
+        objUser.setSexo(txtSexo.getSelectedItem().toString());
         
         objDao = new UserDao();
         objDao.cadastraUser(objUser);
+        
+        JOptionPane.showMessageDialog(null, "Usuario criado com sucesso");
+        this.dispose();
+        new Tela2().setVisible(true);
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
@@ -205,6 +213,6 @@ public class Tela4 extends javax.swing.JFrame {
     private javax.swing.JTextField txtEndereco;
     private javax.swing.JTextField txtIdade;
     private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtSexo;
+    private javax.swing.JComboBox txtSexo;
     // End of variables declaration//GEN-END:variables
 }
