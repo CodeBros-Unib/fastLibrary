@@ -3,33 +3,11 @@ package model;
 import java.util.ArrayList;
 
 public class User {
-    private int Codigo;
     private String Nome;
     private String Cpf;
     private String Sexo;
+    private String Idade;
     private String Endereco;
-    ArrayList<Book> ListBook;
-
-    public User() {
-        ListBook = new ArrayList();
-    }
-
-    public User(int Codigo, String Nome, String Cpf, String Sexo, String Endereco) {
-        this.Codigo = Codigo;
-        this.Nome = Nome;
-        this.Cpf = Cpf;
-        this.Sexo = Sexo;
-        this.Endereco = Endereco;
-        ListBook = new ArrayList();
-    }
-    
-    public int getCodigo() {
-        return Codigo;
-    }
-
-    public void setCodigo(int Codigo) {
-        this.Codigo = Codigo;
-    }
 
     public String getNome() {
         return Nome;
@@ -63,16 +41,11 @@ public class User {
         this.Endereco = Endereco;
     }
 
-    public ArrayList<Book> getListBook() {
-        return ListBook;
+    public String getIdade() {
+        return Idade;
     }
 
-    public void setListBook(ArrayList<Book> ListBook) {
-        this.ListBook = ListBook;
+    public void setIdade(String Idade) {
+        this.Idade = Idade;
     }
-    
-    public void addBook(Book B) {
-        B.setUser(this);
-        ListBook.add(B);
-    }    
 }
