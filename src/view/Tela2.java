@@ -1,21 +1,32 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
-/**
- *
- * @author rosan
- */
+import dao.UserDao;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
+import model.User;
+
 public class Tela2 extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Tela2
-     */
     public Tela2() {
         initComponents();
+        DefaultTableModel modelo = (DefaultTableModel) tableUser.getModel();
+        tableUser.setRowSorter(new TableRowSorter(modelo));
+        listarUser();
+    }
+    
+    public void listarUser() {
+        DefaultTableModel modelo = (DefaultTableModel) tableUser.getModel();
+        UserDao userDao = new UserDao();
+        
+        for(User user: userDao.listarUser()) {
+            modelo.addRow(new Object[]{
+               user.getCpf(),
+               user.getNome(),
+               user.getIdade(),
+               user.getSexo(),
+               user.getEndereco()
+            }); 
+        }
     }
 
     /**
@@ -33,21 +44,23 @@ public class Tela2 extends javax.swing.JFrame {
         cadlivro = new javax.swing.JButton();
         caduser = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableLivros = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tableUser = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(249, 214, 96));
-        jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png")));
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(30, 20, 460, 60);
 
         emprestimo.setBackground(new java.awt.Color(255, 255, 255));
         emprestimo.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
@@ -60,8 +73,6 @@ public class Tela2 extends javax.swing.JFrame {
                 emprestimoActionPerformed(evt);
             }
         });
-        jPanel1.add(emprestimo);
-        emprestimo.setBounds(30, 110, 370, 40);
 
         cadlivro.setBackground(new java.awt.Color(255, 255, 255));
         cadlivro.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
@@ -74,8 +85,6 @@ public class Tela2 extends javax.swing.JFrame {
                 cadlivroActionPerformed(evt);
             }
         });
-        jPanel1.add(cadlivro);
-        cadlivro.setBounds(410, 110, 370, 40);
 
         caduser.setBackground(new java.awt.Color(255, 255, 255));
         caduser.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
@@ -83,8 +92,6 @@ public class Tela2 extends javax.swing.JFrame {
         caduser.setText("CADASTRAR USUÁRIO");
         caduser.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(106, 173, 198), 2));
         caduser.setFocusPainted(false);
-        jPanel1.add(caduser);
-        caduser.setBounds(790, 110, 370, 40);
 
         btnSair.setBackground(new java.awt.Color(255, 255, 255));
         btnSair.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
@@ -99,10 +106,8 @@ public class Tela2 extends javax.swing.JFrame {
                 btnSairActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSair);
-        btnSair.setBounds(1080, 20, 80, 60);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableLivros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -128,10 +133,100 @@ public class Tela2 extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableLivros);
 
-        jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(32, 172, 1130, 500);
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1110, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Livros", jPanel2);
+
+        tableUser.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "CPF", "Nome", "Idade", "Endereço", "Sexo"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tableUser);
+        if (tableUser.getColumnModel().getColumnCount() > 0) {
+            tableUser.getColumnModel().getColumn(0).setResizable(false);
+            tableUser.getColumnModel().getColumn(1).setResizable(false);
+            tableUser.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tableUser.getColumnModel().getColumn(2).setResizable(false);
+            tableUser.getColumnModel().getColumn(2).setPreferredWidth(10);
+            tableUser.getColumnModel().getColumn(3).setResizable(false);
+            tableUser.getColumnModel().getColumn(4).setResizable(false);
+            tableUser.getColumnModel().getColumn(4).setPreferredWidth(10);
+        }
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1110, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Usuários", jPanel3);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(590, 590, 590)
+                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(emprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(cadlivro, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(caduser, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTabbedPane1)))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(emprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cadlivro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(caduser, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
+        );
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 1200, 700);
@@ -195,7 +290,12 @@ public class Tela2 extends javax.swing.JFrame {
     private javax.swing.JButton emprestimo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable tableLivros;
+    private javax.swing.JTable tableUser;
     // End of variables declaration//GEN-END:variables
 }
