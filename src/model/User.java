@@ -4,7 +4,7 @@ public class User {
     private String Nome;
     private String Cpf;
     private String Sexo;
-    private String Idade;
+    private int Idade;
     private String Endereco;
 
     public String getNome() {
@@ -39,11 +39,11 @@ public class User {
         this.Endereco = Endereco;
     }
 
-    public String getIdade() {
+    public int getIdade() {
         return Idade;
     }
 
-    public void setIdade(String Idade) {
+    public void setIdade(int Idade) {
         this.Idade = Idade;
     }
 }
