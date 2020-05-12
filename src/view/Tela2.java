@@ -236,7 +236,8 @@ public class Tela2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cadlivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadlivroActionPerformed
-
+ Tela3 Tela3 = new Tela3();
+        Tela3.setVisible (true);
     }//GEN-LAST:event_cadlivroActionPerformed
 
     private void emprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emprestimoActionPerformed

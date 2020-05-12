@@ -1,15 +1,18 @@
 package model;
 
 public class Book {
+    private String idlivro;
     private String nomeLivro;
     private String autor;
     private String editora;
     private String ano;
-    private User User;
+   
 
     public Book() {
     }
-    
+    public String getidlivro(){
+        return idlivro;
+    }
     public String getNomeLivro() {
         return nomeLivro;
     }
@@ -42,11 +45,4 @@ public class Book {
         this.ano = ano;
     }
 
-    public User getUser() {
-        return User;
-    }
-
-    public void setUser(User User) {
-        this.User = User;
-    }
 }
