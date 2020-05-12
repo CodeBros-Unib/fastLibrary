@@ -29,7 +29,7 @@ public class UserDao {
 
             stmt.setString(1, objUser.getCpf());
             stmt.setString(2, objUser.getNome());
-            stmt.setString(3, objUser.getIdade());
+            stmt.setInt(3, objUser.getIdade());
             stmt.setString(4, objUser.getEndereco());
             stmt.setString(5, objUser.getSexo());
 
@@ -53,7 +53,7 @@ public class UserDao {
             while (rs.next()) {                
                 user.setCpf(rs.getString("CPF"));
                 user.setNome(rs.getString("nome"));
-                user.setIdade(rs.getString("idade"));
+                user.setIdade(rs.getInt("idade"));
                 user.setEndereco(rs.getString("endereço"));
                 user.setSexo(rs.getString("sexo"));
                 users.add(user);
