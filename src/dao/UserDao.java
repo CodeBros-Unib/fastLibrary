@@ -67,15 +67,15 @@ public class UserDao {
         return users;
     }
 
-    public User consultaUser(String Cpf) {
+    public User consultaUser() {
         User user = new User();
         try {
             String sql;
             sql = "SELECT CPF, nome FROM usuario where CPF = ?";
             PreparedStatement stmt = connection.prepareStatement(sql);
-            
+
             stmt.setString(1, cpf);
-            
+
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {

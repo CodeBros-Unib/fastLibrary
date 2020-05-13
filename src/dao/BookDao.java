@@ -39,7 +39,7 @@ public class BookDao {
         }
     }
 
-    public Book consultaBook(int id) {
+    public Book consultaBook() {
         Book book = new Book();
         try {
             String sql;
@@ -62,5 +62,21 @@ public class BookDao {
         }
 
         return book;
+    }
+    
+    public void alteraStatus() {
+        try {
+            String sql;
+            sql = "UPDATE livro SET status = 'Emprestado' WHERE idlivro = ?";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            
+            stmt.setInt(1, id);
+            
+            stmt.execute();
+            stmt.close();
+            
+        } catch (SQLException exception) {
+            Logger.getLogger(BookDao.class.getName()).log(Level.SEVERE, null, exception);
+        }
     }
 }

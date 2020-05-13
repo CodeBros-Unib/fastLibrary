@@ -2,7 +2,7 @@ package model;
 
 public class Emprestimo {
     private int IdEmprestimo;
-    private String IdLivro;
+    private int IdLivro;
     private String CpfSolictante;
     private String DataEmprestimo;
     private String DataDevolucao;
@@ -15,11 +15,11 @@ public class Emprestimo {
         this.IdEmprestimo = IdEmprestimo;
     }
 
-    public String getIdLivro() {
+    public int getIdLivro() {
         return IdLivro;
     }
 
-    public void setIdLivro(String IdLivro) {
+    public void setIdLivro(int IdLivro) {
         this.IdLivro = IdLivro;
     }
 
