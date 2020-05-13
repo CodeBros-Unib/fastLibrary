@@ -5,15 +5,26 @@
  */
 package view;
 
+import dao.BookDao;
+import dao.EmprestimoDao;
+import dao.UserDao;
+import model.Book;
+import model.Emprestimo;
+import model.User;
+
 /**
  *
  * @author rosan
  */
 public class Tela3 extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Tela3
-     */
+    private EmprestimoDao objEmpDao;
+    private UserDao objUserDao;
+    private BookDao objBookDao;
+    private Emprestimo objEmprestimo;
+    private User objUser;
+    private Book objBook;
+    
     public Tela3() {
         initComponents();
     }
@@ -197,7 +208,17 @@ public class Tela3 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEmprestarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+        objUserDao = new UserDao();
+        objBookDao = new BookDao();
+        
+        objUserDao.consultaUser(txtCpf.getText());
+        txtCpf2.setText(objUser.getCpf());
+        txtNome2.setText(objUser.getNome());
+        
+        objBookDao.consultaBook(Integer.parseInt(txtCodigo.getText()));
+        txtCodigo2.setText(String.valueOf(objBook.getId()));
+        txtTitulo.setText(objBook.getTitulo());
+        txtStatus.setText(objBook.getStatus());
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**

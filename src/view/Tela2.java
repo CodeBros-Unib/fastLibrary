@@ -3,7 +3,6 @@ package view;
 import dao.UserDao;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
-import model.User;
 
 public class Tela2 extends javax.swing.JFrame {
 
@@ -19,15 +18,15 @@ public class Tela2 extends javax.swing.JFrame {
         modelo.setNumRows(0);
         UserDao userDao = new UserDao();
         
-        for(User user: userDao.listarUser()) {
+        userDao.listarUser().stream().forEach((user) -> {
             modelo.addRow(new Object[]{
-               user.getCpf(),
-               user.getNome(),
-               user.getIdade(),
-               user.getSexo(),
-               user.getEndereco()
-            }); 
-        }
+                user.getCpf(),
+                user.getNome(),
+                user.getIdade(),
+                user.getSexo(),
+                user.getEndereco()
+            });
+        });
     }
 
     /**
