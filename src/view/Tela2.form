@@ -54,8 +54,8 @@
                           <Component id="emprestimo" min="-2" pref="370" max="-2" attributes="0"/>
                           <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                           <Component id="cadlivro" min="-2" pref="370" max="-2" attributes="0"/>
-                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                          <Component id="caduser" min="-2" pref="370" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="cadUser" min="-2" pref="370" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
                   </Group>
@@ -73,11 +73,13 @@
                   <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="emprestimo" min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="cadlivro" min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="caduser" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="cadlivro" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="cadUser" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                  <Component id="jTabbedPane1" max="32767" attributes="0"/>
+                  <Component id="jTabbedPane1" pref="519" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -145,7 +147,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadlivroActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="caduser">
+        <Component class="javax.swing.JButton" name="cadUser">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -166,6 +168,9 @@
             </Property>
             <Property name="focusPainted" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadUserActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnSair">
           <Properties>
@@ -232,7 +237,7 @@
                     <Component class="javax.swing.JTable" name="tableLivros">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="6" rowCount="4">
+                          <Table columnCount="6" rowCount="0">
                             <Column editable="false" title="ID" type="java.lang.String"/>
                             <Column editable="false" title="T&#xed;tulo" type="java.lang.String"/>
                             <Column editable="false" title="Autor" type="java.lang.String"/>
@@ -316,7 +321,7 @@
                     <Component class="javax.swing.JTable" name="tableUser">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="5" rowCount="4">
+                          <Table columnCount="5" rowCount="0">
                             <Column editable="true" title="CPF" type="java.lang.String"/>
                             <Column editable="true" title="Nome" type="java.lang.String"/>
                             <Column editable="true" title="Idade" type="java.lang.String"/>

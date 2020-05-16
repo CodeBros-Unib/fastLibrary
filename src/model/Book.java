@@ -1,21 +1,27 @@
 package model;
 
 public class Book {
-    private String nomeLivro;
+    private int id;
+    private String titulo;
     private String autor;
     private String editora;
-    private String ano;
-    private User User;
+    private int ano;
+    private String status;
 
-    public Book() {
-    }
-    
-    public String getNomeLivro() {
-        return nomeLivro;
+    public int getId() {
+        return id;
     }
 
-    public void setNomeLivro(String nomeLivro) {
-        this.nomeLivro = nomeLivro;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     public String getAutor() {
@@ -34,19 +40,22 @@ public class Book {
         this.editora = editora;
     }
 
-    public String getAno() {
+    public int getAno() {
         return ano;
     }
 
-    public void setAno(String ano) {
+    public void setAno(int ano) {
         this.ano = ano;
     }
 
-    public User getUser() {
-        return User;
+    public String getStatus() {
+        return status;
     }
 
-    public void setUser(User User) {
-        this.User = User;
+    public void setStatus(String status) {
+        this.status = status;
     }
+
+    
+    
 }

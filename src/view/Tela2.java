@@ -3,7 +3,6 @@ package view;
 import dao.UserDao;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
-import model.User;
 
 public class Tela2 extends javax.swing.JFrame {
 
@@ -16,17 +15,18 @@ public class Tela2 extends javax.swing.JFrame {
     
     public void listarUser() {
         DefaultTableModel modelo = (DefaultTableModel) tableUser.getModel();
+        modelo.setNumRows(0);
         UserDao userDao = new UserDao();
         
-        for(User user: userDao.listarUser()) {
+        userDao.listarUser().stream().forEach((user) -> {
             modelo.addRow(new Object[]{
-               user.getCpf(),
-               user.getNome(),
-               user.getIdade(),
-               user.getSexo(),
-               user.getEndereco()
-            }); 
-        }
+                user.getCpf(),
+                user.getNome(),
+                user.getIdade(),
+                user.getSexo(),
+                user.getEndereco()
+            });
+        });
     }
 
     /**
@@ -42,7 +42,7 @@ public class Tela2 extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         emprestimo = new javax.swing.JButton();
         cadlivro = new javax.swing.JButton();
-        caduser = new javax.swing.JButton();
+        cadUser = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
@@ -86,12 +86,17 @@ public class Tela2 extends javax.swing.JFrame {
             }
         });
 
-        caduser.setBackground(new java.awt.Color(255, 255, 255));
-        caduser.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        caduser.setForeground(new java.awt.Color(106, 173, 198));
-        caduser.setText("CADASTRAR USUÁRIO");
-        caduser.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(106, 173, 198), 2));
-        caduser.setFocusPainted(false);
+        cadUser.setBackground(new java.awt.Color(255, 255, 255));
+        cadUser.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        cadUser.setForeground(new java.awt.Color(106, 173, 198));
+        cadUser.setText("CADASTRAR USUÁRIO");
+        cadUser.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(106, 173, 198), 2));
+        cadUser.setFocusPainted(false);
+        cadUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadUserActionPerformed(evt);
+            }
+        });
 
         btnSair.setBackground(new java.awt.Color(255, 255, 255));
         btnSair.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
@@ -109,10 +114,7 @@ public class Tela2 extends javax.swing.JFrame {
 
         tableLivros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "Título", "Autor", "Editora", "Ano", "Status"
@@ -150,10 +152,7 @@ public class Tela2 extends javax.swing.JFrame {
 
         tableUser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "CPF", "Nome", "Idade", "Endereço", "Sexo"
@@ -207,8 +206,8 @@ public class Tela2 extends javax.swing.JFrame {
                         .addComponent(emprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(cadlivro, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(caduser, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cadUser, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jTabbedPane1)))
         );
         jPanel1Layout.setVerticalGroup(
@@ -221,10 +220,11 @@ public class Tela2 extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(emprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cadlivro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(caduser, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cadlivro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cadUser, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20)
-                .addComponent(jTabbedPane1)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -236,17 +236,24 @@ public class Tela2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cadlivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadlivroActionPerformed
-
+        Tela5 Tela5 = new Tela5();
+        Tela5.setVisible (true);
     }//GEN-LAST:event_cadlivroActionPerformed
 
     private void emprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emprestimoActionPerformed
-
+        this.dispose();
+        new Tela3().setVisible(true);
     }//GEN-LAST:event_emprestimoActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         this.dispose();
         new Tela1().setVisible(true);
     }//GEN-LAST:event_btnSairActionPerformed
+
+    private void cadUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadUserActionPerformed
+        this.dispose();
+        new Tela4().setVisible(true);
+    }//GEN-LAST:event_cadUserActionPerformed
 
     /**
      * @param args the command line arguments
@@ -283,10 +290,24 @@ public class Tela2 extends javax.swing.JFrame {
         });
     }
 
+//public void contadata    
+//SimpleDateFormat sdf = new SimpleDateFormat(“dd/MM/yyyy”);
+//Calendar data1 = Calendar.getInstance();
+//Calendar data2 = Calendar.getInstance();
+//try {
+//data1.setTime(sdf.parse(jTextField1.getText()));
+//data2.setTime(sdf.parse(jTextField2.getText()));
+//} catch (java.text.ParseException e ) {}
+//int dias = data2.get(Calendar.DAY_OF_YEAR) -
+//data1.get(Calendar.DAY_OF_YEAR);
+//jTextField3.setText(String.valueOf(dias));
+//
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSair;
+    private javax.swing.JButton cadUser;
     private javax.swing.JButton cadlivro;
-    private javax.swing.JButton caduser;
     private javax.swing.JButton emprestimo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

@@ -143,7 +143,7 @@ public class Tela4 extends javax.swing.JFrame {
         objUser = new User();
         objUser.setCpf(txtCpf.getText());
         objUser.setNome(txtNome.getText());
-        objUser.setIdade(txtIdade.getText());
+        objUser.setIdade(Integer.parseInt(txtIdade.getText()));
         objUser.setEndereco(txtEndereco.getText());
         objUser.setSexo(txtSexo.getSelectedItem().toString());
         

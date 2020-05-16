@@ -5,15 +5,27 @@
  */
 package view;
 
+import dao.BookDao;
+import dao.EmprestimoDao;
+import dao.UserDao;
+import javax.swing.JOptionPane;
+import model.Book;
+import model.Emprestimo;
+import model.User;
+
 /**
  *
  * @author rosan
  */
 public class Tela3 extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Tela3
-     */
+    private EmprestimoDao objEmpDao;
+    private UserDao objUserDao;
+    private BookDao objBookDao;
+    private Emprestimo objEmprestimo;
+    private User objUser;
+    private Book objBook;
+
     public Tela3() {
         initComponents();
     }
@@ -189,15 +201,46 @@ public class Tela3 extends javax.swing.JFrame {
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         this.dispose();
         Tela2 Tela2 = new Tela2();
-        Tela2.setVisible (true); 
+        Tela2.setVisible(true);
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnEmprestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmprestarActionPerformed
-        // TODO add your handling code here:
+        if (!txtStatus.equals("Disponível")) {
+            JOptionPane.showMessageDialog(null, "O livro já está emprestado");
+            this.dispose();
+            new Tela2().setVisible(true);
+        } else {
+            objEmprestimo = new Emprestimo();
+            objEmprestimo.setCpfSolictante(txtCpf2.getText());
+            objEmprestimo.setIdLivro(Integer.parseInt(txtCodigo2.getText()));
+
+            objEmpDao = new EmprestimoDao();
+            objEmpDao.emprestaLivro(objEmprestimo);
+
+            dao.BookDao.id = Integer.parseInt(txtCodigo2.getText());
+            objBookDao = new BookDao();
+            objBookDao.alteraStatus();
+
+            JOptionPane.showMessageDialog(null, "Empréstimo realizado com sucesso");
+            this.dispose();
+            new Tela2().setVisible(true);
+        }
     }//GEN-LAST:event_btnEmprestarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+        objUserDao = new UserDao();
+        objBookDao = new BookDao();
+
+        dao.UserDao.cpf = txtCpf.getText();
+        objUser = objUserDao.consultaUser();
+        txtCpf2.setText(objUser.getCpf());
+        txtNome2.setText(objUser.getNome());
+
+        dao.BookDao.id = Integer.parseInt(txtCodigo.getText());
+        objBook = objBookDao.consultaBook();
+        txtCodigo2.setText(String.valueOf(objBook.getId()));
+        txtTitulo.setText(objBook.getTitulo());
+        txtStatus.setText(objBook.getStatus());
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**
