@@ -205,13 +205,13 @@ public class Tela3 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnEmprestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmprestarActionPerformed
-        if (!txtStatus.equals("Disponível")) {
+        if (!txtStatus.getText().equals("Disponível")) {
             JOptionPane.showMessageDialog(null, "O livro já está emprestado");
             this.dispose();
             new Tela2().setVisible(true);
         } else {
             objEmprestimo = new Emprestimo();
-            objEmprestimo.setCpfSolictante(txtCpf2.getText());
+            objEmprestimo.setCpfSolicitante(txtCpf2.getText());
             objEmprestimo.setIdLivro(Integer.parseInt(txtCodigo2.getText()));
 
             objEmpDao = new EmprestimoDao();

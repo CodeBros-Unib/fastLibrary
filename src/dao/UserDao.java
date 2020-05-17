@@ -23,7 +23,9 @@ public class UserDao {
     public void cadastraUser(User objUser) {
         try {
             String sql;
-            sql = "INSERT INTO usuario(CPF, nome, idade, endereço, sexo) VALUES(?,?,?,?,?)";
+            sql = "INSERT INTO usuario"
+                    + "(CPF, nome, idade, endereço, sexo) "
+                    + "VALUES(?,?,?,?,?)";
             PreparedStatement stmt = connection.prepareStatement(sql);
 
             stmt.setString(1, objUser.getCpf());
