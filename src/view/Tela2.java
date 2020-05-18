@@ -1,5 +1,6 @@
 package view;
 
+import dao.EmprestimoDao;
 import dao.UserDao;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -10,7 +11,9 @@ public class Tela2 extends javax.swing.JFrame {
         initComponents();
         DefaultTableModel modelo = (DefaultTableModel) tableUser.getModel();
         tableUser.setRowSorter(new TableRowSorter(modelo));
+        tableEmprestimos.setRowSorter(new TableRowSorter(modelo));
         listarUser();
+        listarEmprestimo();
     }
     
     public void listarUser() {
@@ -25,6 +28,24 @@ public class Tela2 extends javax.swing.JFrame {
                 user.getIdade(),
                 user.getSexo(),
                 user.getEndereco()
+            });
+        });
+    }
+    
+    public void listarEmprestimo() {
+        DefaultTableModel modelo = (DefaultTableModel) tableEmprestimos.getModel();
+        modelo.setNumRows(0);
+        EmprestimoDao emprestimoDao = new EmprestimoDao();
+        
+        emprestimoDao.listarEmprestimo().stream().forEach((emprestimo) -> {
+            modelo.addRow(new Object[] {
+               emprestimo.getIdLivro(),
+               emprestimo.getTitulo(),
+               emprestimo.getCpfSolicitante(),
+               emprestimo.getSolicitante(),
+               emprestimo.getDataEmprestimo(),
+               emprestimo.getDataDevolucao(),
+               emprestimo.getStatus()
             });
         });
     }
@@ -43,6 +64,7 @@ public class Tela2 extends javax.swing.JFrame {
         emprestimo = new javax.swing.JButton();
         cadlivro = new javax.swing.JButton();
         cadUser = new javax.swing.JButton();
+        devolveLivro = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
@@ -51,6 +73,9 @@ public class Tela2 extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableUser = new javax.swing.JTable();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tableEmprestimos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -98,6 +123,18 @@ public class Tela2 extends javax.swing.JFrame {
             }
         });
 
+        devolveLivro.setBackground(new java.awt.Color(255, 255, 255));
+        devolveLivro.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        devolveLivro.setForeground(new java.awt.Color(106, 173, 198));
+        devolveLivro.setText("DEVOLVER LIVRO");
+        devolveLivro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(106, 173, 198), 2));
+        devolveLivro.setFocusPainted(false);
+        devolveLivro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                devolveLivroActionPerformed(evt);
+            }
+        });
+
         btnSair.setBackground(new java.awt.Color(255, 255, 255));
         btnSair.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         btnSair.setForeground(new java.awt.Color(106, 173, 198));
@@ -141,7 +178,7 @@ public class Tela2 extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1110, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1134, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,7 +219,7 @@ public class Tela2 extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1110, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1134, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,6 +227,37 @@ public class Tela2 extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Usuários", jPanel3);
+
+        tableEmprestimos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID Livro", "Título", "CPF", "Solicitante", "Data Empréstimo", "Data Devolução", "Status"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(tableEmprestimos);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1134, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Empréstimos", jPanel4);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -203,11 +271,13 @@ public class Tela2 extends javax.swing.JFrame {
                         .addGap(590, 590, 590)
                         .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(emprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(emprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
-                        .addComponent(cadlivro, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cadlivro, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cadUser, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cadUser, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(devolveLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jTabbedPane1)))
         );
         jPanel1Layout.setVerticalGroup(
@@ -222,9 +292,10 @@ public class Tela2 extends javax.swing.JFrame {
                     .addComponent(emprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(cadlivro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cadUser, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cadUser, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(devolveLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
 
@@ -254,6 +325,10 @@ public class Tela2 extends javax.swing.JFrame {
         this.dispose();
         new Tela4().setVisible(true);
     }//GEN-LAST:event_cadUserActionPerformed
+
+    private void devolveLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_devolveLivroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_devolveLivroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -296,14 +371,18 @@ public class Tela2 extends javax.swing.JFrame {
     private javax.swing.JButton btnSair;
     private javax.swing.JButton cadUser;
     private javax.swing.JButton cadlivro;
+    private javax.swing.JButton devolveLivro;
     private javax.swing.JButton emprestimo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable tableEmprestimos;
     private javax.swing.JTable tableLivros;
     private javax.swing.JTable tableUser;
     // End of variables declaration//GEN-END:variables

@@ -1,25 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import dao.BookDao;
 import dao.EmprestimoDao;
 import dao.UserDao;
-import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import model.Book;
 import model.Emprestimo;
 import model.User;
 
-/**
- *
- * @author rosan
- */
-public class Tela3 extends javax.swing.JFrame {
-
+public class Tela6 extends javax.swing.JFrame {
+    
     private EmprestimoDao objEmpDao;
     private UserDao objUserDao;
     private BookDao objBookDao;
@@ -27,7 +17,7 @@ public class Tela3 extends javax.swing.JFrame {
     private User objUser;
     private Book objBook;
 
-    public Tela3() {
+    public Tela6() {
         initComponents();
     }
 
@@ -49,7 +39,7 @@ public class Tela3 extends javax.swing.JFrame {
         lblCpf = new javax.swing.JLabel();
         txtCpf = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        btnEmprestar = new javax.swing.JButton();
+        btnDevolver = new javax.swing.JButton();
         lblCodigo2 = new javax.swing.JLabel();
         txtCodigo2 = new javax.swing.JTextField();
         lblTitulo = new javax.swing.JLabel();
@@ -65,8 +55,6 @@ public class Tela3 extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
-        getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 0));
         jPanel1.setLayout(null);
@@ -104,18 +92,18 @@ public class Tela3 extends javax.swing.JFrame {
         jPanel2.add(jSeparator1);
         jSeparator1.setBounds(100, 130, 460, 10);
 
-        btnEmprestar.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        btnEmprestar.setForeground(new java.awt.Color(106, 173, 198));
-        btnEmprestar.setText("EMPRESTAR");
-        btnEmprestar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(106, 173, 198), 2));
-        btnEmprestar.setContentAreaFilled(false);
-        btnEmprestar.addActionListener(new java.awt.event.ActionListener() {
+        btnDevolver.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        btnDevolver.setForeground(new java.awt.Color(106, 173, 198));
+        btnDevolver.setText("DEVOLVER");
+        btnDevolver.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(106, 173, 198), 2));
+        btnDevolver.setContentAreaFilled(false);
+        btnDevolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEmprestarActionPerformed(evt);
+                btnDevolverActionPerformed(evt);
             }
         });
-        jPanel2.add(btnEmprestar);
-        btnEmprestar.setBounds(250, 280, 160, 30);
+        jPanel2.add(btnDevolver);
+        btnDevolver.setBounds(250, 280, 160, 30);
 
         lblCodigo2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblCodigo2.setForeground(new java.awt.Color(34, 34, 34));
@@ -188,37 +176,44 @@ public class Tela3 extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Ubuntu", 1, 22)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Empréstimo");
+        jLabel7.setText("Devolução");
         jPanel1.add(jLabel7);
         jLabel7.setBounds(0, 110, 700, 50);
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 700, 520);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 700, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 520, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
-        setSize(new java.awt.Dimension(700, 520));
-        setLocationRelativeTo(null);
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        this.dispose();
-        Tela2 Tela2 = new Tela2();
-        Tela2.setVisible(true);
-    }//GEN-LAST:event_btnVoltarActionPerformed
-
-    private void btnEmprestarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmprestarActionPerformed
+    private void btnDevolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDevolverActionPerformed
         if (!txtStatus.getText().equals("Disponível")) {
             JOptionPane.showMessageDialog(null, "O livro já está emprestado");
             this.dispose();
             new Tela2().setVisible(true);
         } else {
-            LocalDate hoje = LocalDate.now();    
-            LocalDate devolucao = hoje.plusDays(10);
             objEmprestimo = new Emprestimo();
             objEmprestimo.setCpfSolicitante(txtCpf2.getText());
             objEmprestimo.setIdLivro(Integer.parseInt(txtCodigo2.getText()));
-            objEmprestimo.setDataEmprestimo(hoje);
-            objEmprestimo.setDataDevolucao(devolucao);
-                    
+
             objEmpDao = new EmprestimoDao();
             objEmpDao.emprestaLivro(objEmprestimo);
 
@@ -226,11 +221,11 @@ public class Tela3 extends javax.swing.JFrame {
             objBookDao = new BookDao();
             objBookDao.alteraStatus();
 
-            JOptionPane.showMessageDialog(null, "Empréstimo realizado com sucesso, a data de devolução é: " + devolucao + "");
+            JOptionPane.showMessageDialog(null, "Devolução realizada");
             this.dispose();
             new Tela2().setVisible(true);
         }
-    }//GEN-LAST:event_btnEmprestarActionPerformed
+    }//GEN-LAST:event_btnDevolverActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         objUserDao = new UserDao();
@@ -247,6 +242,12 @@ public class Tela3 extends javax.swing.JFrame {
         txtTitulo.setText(objBook.getTitulo());
         txtStatus.setText(objBook.getStatus());
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        this.dispose();
+        Tela2 Tela2 = new Tela2();
+        Tela2.setVisible(true);
+    }//GEN-LAST:event_btnVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -265,27 +266,27 @@ public class Tela3 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Tela3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela6.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Tela3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela6.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Tela3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela6.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Tela3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Tela6.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Tela3().setVisible(true);
+                new Tela6().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnEmprestar;
+    private javax.swing.JButton btnDevolver;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
