@@ -365,18 +365,6 @@ public class Tela2 extends javax.swing.JFrame {
         });
     }
 
-//public void contadata    
-//SimpleDateFormat sdf = new SimpleDateFormat(“dd/MM/yyyy”);
-//Calendar data1 = Calendar.getInstance();
-//Calendar data2 = Calendar.getInstance();
-//try {
-//data1.setTime(sdf.parse(jTextField1.getText()));
-//data2.setTime(sdf.parse(jTextField2.getText()));
-//} catch (java.text.ParseException e ) {}
-//int dias = data2.get(Calendar.DAY_OF_YEAR) -
-//data1.get(Calendar.DAY_OF_YEAR);
-//jTextField3.setText(String.valueOf(dias));
-//
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

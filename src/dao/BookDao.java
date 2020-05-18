@@ -79,4 +79,18 @@ public class BookDao {
             Logger.getLogger(BookDao.class.getName()).log(Level.SEVERE, null, exception);
         }
     }
+    
+    public void devolucaoLivro() {
+        try {
+            String sql;
+            sql = "UPDATE livro SET status = 'Disponível' WHERE idlivro = ?";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            
+            stmt.setInt(1, id);
+            
+            stmt.execute();
+            stmt.close();
+        } catch (Exception e) {
+        }
+    }
 }
