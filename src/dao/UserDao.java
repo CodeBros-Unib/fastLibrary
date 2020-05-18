@@ -23,7 +23,7 @@ public class UserDao {
     public void cadastraUser(User objUser) {
         try {
             String sql;
-            sql = "INSERT INTO usuario(CPF, nome, idade, endereço, sexo) VALUES(?,?,?,?,?)";
+            sql = "INSERT INTO usuario(CPF, nome, idade, endereco, sexo) VALUES(?,?,?,?,?)";
             PreparedStatement stmt = connection.prepareStatement(sql);
 
             stmt.setString(1, objUser.getCpf());
@@ -54,7 +54,7 @@ public class UserDao {
                 user.setCpf(rs.getString("CPF"));
                 user.setNome(rs.getString("nome"));
                 user.setIdade(rs.getInt("idade"));
-                user.setEndereco(rs.getString("endereço"));
+                user.setEndereco(rs.getString("endereco"));
                 user.setSexo(rs.getString("sexo"));
                 users.add(user);
             }

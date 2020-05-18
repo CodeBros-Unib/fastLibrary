@@ -8,6 +8,7 @@ package view;
 import dao.BookDao;
 import dao.EmprestimoDao;
 import dao.UserDao;
+import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import model.Book;
 import model.Emprestimo;
@@ -60,8 +61,6 @@ public class Tela3 extends javax.swing.JFrame {
         lblCpf2 = new javax.swing.JLabel();
         txtCpf2 = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
-        jData = new javax.swing.JLabel();
-        txtData = new javax.swing.JTextField();
         btnVoltar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
@@ -171,15 +170,6 @@ public class Tela3 extends javax.swing.JFrame {
         jPanel2.add(btnBuscar);
         btnBuscar.setBounds(250, 90, 160, 30);
 
-        jData.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jData.setText("Dia do empréstimo:");
-        jPanel2.add(jData);
-        jData.setBounds(20, 270, 170, 17);
-
-        txtData.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jPanel2.add(txtData);
-        txtData.setBounds(20, 290, 120, 30);
-
         jPanel1.add(jPanel2);
         jPanel2.setBounds(30, 170, 640, 320);
 
@@ -221,12 +211,14 @@ public class Tela3 extends javax.swing.JFrame {
             this.dispose();
             new Tela2().setVisible(true);
         } else {
-            int x = Integer.parseInt(txtData.getText());
-            int y = (x + 10);
+            LocalDate hoje = LocalDate.now();    
+            LocalDate devolucao = hoje.plusDays(10);
             objEmprestimo = new Emprestimo();
             objEmprestimo.setCpfSolictante(txtCpf2.getText());
             objEmprestimo.setIdLivro(Integer.parseInt(txtCodigo2.getText()));
-
+            objEmprestimo.setDataEmprestimo(hoje);
+            objEmprestimo.setDataDevolucao(devolucao);
+                    
             objEmpDao = new EmprestimoDao();
             objEmpDao.emprestaLivro(objEmprestimo);
 
@@ -234,7 +226,7 @@ public class Tela3 extends javax.swing.JFrame {
             objBookDao = new BookDao();
             objBookDao.alteraStatus();
 
-            JOptionPane.showMessageDialog(null, "Empréstimo realizado com sucesso, a data de devolução é: " + y + "");
+            JOptionPane.showMessageDialog(null, "Empréstimo realizado com sucesso, a data de devolução é: " + devolucao + "");
             this.dispose();
             new Tela2().setVisible(true);
         }
@@ -295,7 +287,6 @@ public class Tela3 extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEmprestar;
     private javax.swing.JButton btnVoltar;
-    private javax.swing.JLabel jData;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
@@ -313,7 +304,6 @@ public class Tela3 extends javax.swing.JFrame {
     private javax.swing.JTextField txtCodigo2;
     private javax.swing.JTextField txtCpf;
     private javax.swing.JTextField txtCpf2;
-    private javax.swing.JTextField txtData;
     private javax.swing.JTextField txtNome2;
     private javax.swing.JTextField txtStatus;
     private javax.swing.JTextField txtTitulo;
