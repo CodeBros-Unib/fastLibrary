@@ -111,11 +111,12 @@ public class BookDao {
 
             while (rs.next()) {
                 Book book = new Book();
-                book.setId(Integer.parseInt(rs.getString("Codigo")));
-                book.setTitulo(rs.getString("Titulo"));
-                book.setAutor(rs.getString("Autor"));
-                book.setEditora(rs.getString("Editora"));
-                book.setAno(Integer.parseInt(rs.getString("Ano")));
+                book.setId(Integer.parseInt(rs.getString("idlivro")));
+                book.setTitulo(rs.getString("titulo"));
+                book.setAutor(rs.getString("nome_do_autor"));
+                book.setEditora(rs.getString("editora"));
+                book.setAno(Integer.parseInt(rs.getString("ano")));
+                book.setStatus(rs.getString("status"));
                 Books.add(book);
             }
 

@@ -1,9 +1,11 @@
 package view;
 
+import dao.BookDao;
 import dao.EmprestimoDao;
 import dao.UserDao;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+import model.Book;
 import model.Emprestimo;
 import model.User;
 
@@ -13,10 +15,13 @@ public class Tela2 extends javax.swing.JFrame {
         initComponents();
         DefaultTableModel modeloUser = (DefaultTableModel) tableUser.getModel();
         DefaultTableModel modeloEmp = (DefaultTableModel) tableEmprestimos.getModel();
+        DefaultTableModel modeloBook = (DefaultTableModel) tableLivros.getModel();
         tableUser.setRowSorter(new TableRowSorter(modeloUser));
         tableEmprestimos.setRowSorter(new TableRowSorter(modeloEmp));
+        tableLivros.setRowSorter(new TableRowSorter(modeloBook));
         listarUser();
         listarEmprestimo();
+        listarBook();
     }
     
     public void listarUser() {
@@ -49,6 +54,23 @@ public class Tela2 extends javax.swing.JFrame {
                emprestimo.getDataEmprestimo().toString(),
                emprestimo.getDataDevolucao().toString(),
                emprestimo.getStatus()
+            });
+        };
+    }
+    
+    public void listarBook() {
+        DefaultTableModel modelo = (DefaultTableModel) tableLivros.getModel();
+        modelo.setNumRows(0);
+        BookDao bookDao = new BookDao();
+        
+        for(Book book: bookDao.listarLivros()) {
+            modelo.addRow(new Object[] {
+               book.getId(),
+               book.getTitulo(),
+               book.getAutor(),
+               book.getEditora(),
+               book.getAno(),
+               book.getStatus()
             });
         };
     }
@@ -310,6 +332,7 @@ public class Tela2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cadlivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadlivroActionPerformed
+        this.dispose();
         Tela5 Tela5 = new Tela5();
         Tela5.setVisible (true);
     }//GEN-LAST:event_cadlivroActionPerformed
