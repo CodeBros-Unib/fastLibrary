@@ -217,6 +217,10 @@ public class Tela6 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDevolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDevolverActionPerformed
+        dao.EmprestimoDao.id = Integer.parseInt(txtID.getText());
+        objEmpDao = new EmprestimoDao();
+        objEmpDao.devolucao();
+        
         dao.BookDao.id = Integer.parseInt(txtCodigo2.getText());
         objBookDao = new BookDao();
         objBookDao.devolucaoLivro();
@@ -229,6 +233,12 @@ public class Tela6 extends javax.swing.JFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         objUserDao = new UserDao();
         objBookDao = new BookDao();
+        objEmpDao = new EmprestimoDao();
+        
+        dao.EmprestimoDao.cpf = txtCpf.getText();
+        dao.EmprestimoDao.idLivro = Integer.parseInt(txtCodigo.getText());
+        objEmprestimo = objEmpDao.getEmprestimo();
+        txtID.setText(String.valueOf(objEmprestimo.getIdEmprestimo()));
 
         dao.UserDao.cpf = txtCpf.getText();
         objUser = objUserDao.consultaUser();
