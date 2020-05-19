@@ -34,8 +34,8 @@ public class Tela2 extends javax.swing.JFrame {
                 user.getCpf(),
                 user.getNome(),
                 user.getIdade(),
-                user.getSexo(),
-                user.getEndereco()
+                user.getEndereco(),
+                user.getSexo()
             });
         };
     }
