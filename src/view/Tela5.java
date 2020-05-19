@@ -6,6 +6,7 @@
 package view;
 
 import dao.BookDao;
+import javax.swing.JOptionPane;
 import model.Book;
 
 /**
@@ -18,7 +19,7 @@ public class Tela5 extends javax.swing.JFrame {
      * Creates new form Tela5
      */
     private BookDao Dao;
-    private Book objUser;
+    private Book objBook;
     
     public Tela5() {
         initComponents();
@@ -47,11 +48,10 @@ public class Tela5 extends javax.swing.JFrame {
         txtEditora = new javax.swing.JTextField();
         lblautor = new javax.swing.JLabel();
         lblEditora = new javax.swing.JLabel();
-        txtAno = new javax.swing.JTextField();
-        txtAutor1 = new javax.swing.JTextField();
+        ano = new javax.swing.JTextField();
+        txtAutor2 = new javax.swing.JTextField();
         btnVoltar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        txtIdade = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -119,10 +119,10 @@ public class Tela5 extends javax.swing.JFrame {
         lblEditora.setText("Editora :");
         jPanel3.add(lblEditora);
         lblEditora.setBounds(170, 90, 120, 17);
-        jPanel3.add(txtAno);
-        txtAno.setBounds(420, 110, 140, 30);
-        jPanel3.add(txtAutor1);
-        txtAutor1.setBounds(20, 110, 140, 30);
+        jPanel3.add(ano);
+        ano.setBounds(420, 110, 140, 30);
+        jPanel3.add(txtAutor2);
+        txtAutor2.setBounds(20, 110, 140, 30);
 
         jPanel2.add(jPanel3);
         jPanel3.setBounds(30, 170, 640, 220);
@@ -145,8 +145,6 @@ public class Tela5 extends javax.swing.JFrame {
         jLabel7.setText("Cadastro de Livro");
         jPanel2.add(jLabel7);
         jLabel7.setBounds(0, 110, 700, 50);
-        jPanel2.add(txtIdade);
-        txtIdade.setBounds(500, 280, 140, 30);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -189,17 +187,17 @@ public class Tela5 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        //objBook = new Book();
-        //objbook.setCpf(txtCodigo.getText());
-        //objUser.setNome(txtNomeLivro.getText());
-        //jUser.setIdade(txtIdade.getText());
-       // objUser.setEndereco(txtEditora.getText());
-        //objUser.setSexo(txtSexo.getSelectedItem().toString());
+        objBook = new Book();
+        objBook.setId(Integer.parseInt(txtCodigo.getText()));
+        objBook.setTitulo(txtNomeLivro.getText());
+        objBook.setAutor(txtAutor2.getText());
+        objBook.setEditora(txtEditora.getText());
+        objBook.setAno(Integer.parseInt(ano.getText()));
 
-        //objDao = new UserDao();
-        //objDao.cadastraUser(objUser);
+        Dao = new BookDao();
+        Dao.cadastroLivro(objBook);
 
-        //JOptionPane.showMessageDialog(null, "Usuario criado com sucesso");
+        JOptionPane.showMessageDialog(null, "Livro Cadastrado com sucesso");
         this.dispose();
         new Tela2().setVisible(true);
     }//GEN-LAST:event_btnCadastrarActionPerformed
@@ -246,6 +244,7 @@ public class Tela5 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ano;
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
@@ -259,11 +258,9 @@ public class Tela5 extends javax.swing.JFrame {
     private javax.swing.JLabel lblEditora;
     private javax.swing.JLabel lblNomeLivro;
     private javax.swing.JLabel lblautor;
-    private javax.swing.JTextField txtAno;
-    private javax.swing.JTextField txtAutor1;
+    private javax.swing.JTextField txtAutor2;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtEditora;
-    private javax.swing.JTextField txtIdade;
     private javax.swing.JTextField txtNomeLivro;
     // End of variables declaration//GEN-END:variables
 }
