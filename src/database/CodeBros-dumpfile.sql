@@ -11,7 +11,7 @@ USE `CodeBros`;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!50503 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40103 SET TIME_ZONE='+03:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
@@ -23,7 +23,7 @@ USE `CodeBros`;
 
 DROP TABLE IF EXISTS `emprestimo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `emprestimo` (
   `idemprestimo` int NOT NULL AUTO_INCREMENT,
   `CPF` varchar(15) NOT NULL,
@@ -52,14 +52,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `livro`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `livro` (
   `idlivro` int NOT NULL,
   `titulo` varchar(50) DEFAULT NULL,
   `nome_do_autor` varchar(50) DEFAULT NULL,
   `editora` varchar(50) DEFAULT NULL,
   `ano` int DEFAULT NULL,
-  `status` varchar(15) DEFAULT (_utf8mb4'Disponível'),
+  `status` varchar(15),
   PRIMARY KEY (`idlivro`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -80,7 +80,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `usuario` (
   `CPF` varchar(15) NOT NULL,
   `nome` varchar(50) DEFAULT NULL,
@@ -108,7 +108,7 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `v_emprestimo`;
 /*!50001 DROP VIEW IF EXISTS `v_emprestimo`*/;
 SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 /*!50001 CREATE VIEW `v_emprestimo` AS SELECT 
  1 AS `CPF`,
  1 AS `nome`,
@@ -124,9 +124,9 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET @saved_cs_client          = @@character_set_client */;
 /*!50001 SET @saved_cs_results         = @@character_set_results */;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `v_emprestimo` AS select `u`.`CPF` AS `CPF`,`u`.`nome` AS `nome`,`l`.`idlivro` AS `idlivro`,`l`.`titulo` AS `titulo` from ((`usuario` `u` join `livro` `l`) join `emprestimo` `e`) where ((`e`.`idlivro` = `l`.`idlivro`) and (`e`.`CPF` = `u`.`CPF`)) */;

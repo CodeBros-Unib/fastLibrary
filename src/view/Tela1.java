@@ -100,8 +100,8 @@ public class Tela1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        LoginController.validaUser();
         this.dispose();
+        LoginController.validaUser();
     }//GEN-LAST:event_loginActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

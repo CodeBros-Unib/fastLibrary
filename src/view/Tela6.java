@@ -51,10 +51,13 @@ public class Tela6 extends javax.swing.JFrame {
         lblCpf2 = new javax.swing.JLabel();
         txtCpf2 = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
+        lblID = new javax.swing.JLabel();
+        txtID = new javax.swing.JTextField();
         btnVoltar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 0));
         jPanel1.setLayout(null);
@@ -107,19 +110,19 @@ public class Tela6 extends javax.swing.JFrame {
 
         lblCodigo2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblCodigo2.setForeground(new java.awt.Color(34, 34, 34));
-        lblCodigo2.setText("Código do Livro:");
+        lblCodigo2.setText("Cod. do Livro:");
         jPanel2.add(lblCodigo2);
-        lblCodigo2.setBounds(20, 140, 130, 17);
+        lblCodigo2.setBounds(80, 140, 111, 17);
         jPanel2.add(txtCodigo2);
-        txtCodigo2.setBounds(20, 160, 140, 30);
+        txtCodigo2.setBounds(80, 160, 120, 30);
 
         lblTitulo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(34, 34, 34));
         lblTitulo.setText("Título:");
         jPanel2.add(lblTitulo);
-        lblTitulo.setBounds(180, 140, 180, 17);
+        lblTitulo.setBounds(220, 140, 140, 17);
         jPanel2.add(txtTitulo);
-        txtTitulo.setBounds(180, 160, 270, 30);
+        txtTitulo.setBounds(220, 160, 230, 30);
 
         lblStatus.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblStatus.setForeground(new java.awt.Color(34, 34, 34));
@@ -157,6 +160,14 @@ public class Tela6 extends javax.swing.JFrame {
         });
         jPanel2.add(btnBuscar);
         btnBuscar.setBounds(250, 90, 160, 30);
+
+        lblID.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblID.setForeground(new java.awt.Color(34, 34, 34));
+        lblID.setText("ID");
+        jPanel2.add(lblID);
+        lblID.setBounds(20, 140, 40, 17);
+        jPanel2.add(txtID);
+        txtID.setBounds(20, 160, 50, 30);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(30, 170, 640, 320);
@@ -202,29 +213,17 @@ public class Tela6 extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDevolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDevolverActionPerformed
-        if (!txtStatus.getText().equals("Disponível")) {
-            JOptionPane.showMessageDialog(null, "O livro já está emprestado");
-            this.dispose();
-            new Tela2().setVisible(true);
-        } else {
-            objEmprestimo = new Emprestimo();
-            objEmprestimo.setCpfSolicitante(txtCpf2.getText());
-            objEmprestimo.setIdLivro(Integer.parseInt(txtCodigo2.getText()));
-
-            objEmpDao = new EmprestimoDao();
-            objEmpDao.emprestaLivro(objEmprestimo);
-
-            dao.BookDao.id = Integer.parseInt(txtCodigo2.getText());
-            objBookDao = new BookDao();
-            objBookDao.alteraStatus();
-
-            JOptionPane.showMessageDialog(null, "Devolução realizada");
-            this.dispose();
-            new Tela2().setVisible(true);
-        }
+        dao.BookDao.id = Integer.parseInt(txtCodigo2.getText());
+        objBookDao = new BookDao();
+        objBookDao.devolucaoLivro();
+        
+        JOptionPane.showMessageDialog(null, "Devolução homologada com sucesso!");
+        this.dispose();
+        new Tela2().setVisible(true);
     }//GEN-LAST:event_btnDevolverActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
@@ -298,6 +297,7 @@ public class Tela6 extends javax.swing.JFrame {
     private javax.swing.JLabel lblCodigo2;
     private javax.swing.JLabel lblCpf;
     private javax.swing.JLabel lblCpf2;
+    private javax.swing.JLabel lblID;
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblStatus;
     private javax.swing.JLabel lblTitulo;
@@ -305,6 +305,7 @@ public class Tela6 extends javax.swing.JFrame {
     private javax.swing.JTextField txtCodigo2;
     private javax.swing.JTextField txtCpf;
     private javax.swing.JTextField txtCpf2;
+    private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNome2;
     private javax.swing.JTextField txtStatus;
     private javax.swing.JTextField txtTitulo;

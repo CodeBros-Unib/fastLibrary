@@ -4,14 +4,17 @@ import dao.EmprestimoDao;
 import dao.UserDao;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+import model.Emprestimo;
+import model.User;
 
 public class Tela2 extends javax.swing.JFrame {
 
     public Tela2() {
         initComponents();
-        DefaultTableModel modelo = (DefaultTableModel) tableUser.getModel();
-        tableUser.setRowSorter(new TableRowSorter(modelo));
-        tableEmprestimos.setRowSorter(new TableRowSorter(modelo));
+        DefaultTableModel modeloUser = (DefaultTableModel) tableUser.getModel();
+        DefaultTableModel modeloEmp = (DefaultTableModel) tableEmprestimos.getModel();
+        tableUser.setRowSorter(new TableRowSorter(modeloUser));
+        tableEmprestimos.setRowSorter(new TableRowSorter(modeloEmp));
         listarUser();
         listarEmprestimo();
     }
@@ -21,7 +24,7 @@ public class Tela2 extends javax.swing.JFrame {
         modelo.setNumRows(0);
         UserDao userDao = new UserDao();
         
-        userDao.listarUser().stream().forEach((user) -> {
+        for(User user: userDao.listarUser()) {
             modelo.addRow(new Object[]{
                 user.getCpf(),
                 user.getNome(),
@@ -29,7 +32,7 @@ public class Tela2 extends javax.swing.JFrame {
                 user.getSexo(),
                 user.getEndereco()
             });
-        });
+        };
     }
     
     public void listarEmprestimo() {
@@ -37,17 +40,17 @@ public class Tela2 extends javax.swing.JFrame {
         modelo.setNumRows(0);
         EmprestimoDao emprestimoDao = new EmprestimoDao();
         
-        emprestimoDao.listarEmprestimo().stream().forEach((emprestimo) -> {
+        for(Emprestimo emprestimo: emprestimoDao.listarEmprestimo()) {
             modelo.addRow(new Object[] {
                emprestimo.getIdLivro(),
                emprestimo.getTitulo(),
                emprestimo.getCpfSolicitante(),
                emprestimo.getSolicitante(),
-               emprestimo.getDataEmprestimo(),
-               emprestimo.getDataDevolucao(),
+               emprestimo.getDataEmprestimo().toString(),
+               emprestimo.getDataDevolucao().toString(),
                emprestimo.getStatus()
             });
-        });
+        };
     }
 
     /**
@@ -327,7 +330,8 @@ public class Tela2 extends javax.swing.JFrame {
     }//GEN-LAST:event_cadUserActionPerformed
 
     private void devolveLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_devolveLivroActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        new Tela6().setVisible(true);
     }//GEN-LAST:event_devolveLivroActionPerformed
 
     /**

@@ -83,14 +83,15 @@ public class BookDao {
     public void devolucaoLivro() {
         try {
             String sql;
-            sql = "UPDATE livro SET status = 'Disponível' WHERE idlivro = ?";
+            sql = "UPDATE livro SET status = default WHERE idlivro = ?";
             PreparedStatement stmt = connection.prepareStatement(sql);
             
             stmt.setInt(1, id);
             
             stmt.execute();
             stmt.close();
-        } catch (Exception e) {
+        } catch (SQLException exception) {
+            Logger.getLogger(BookDao.class.getName()).log(Level.SEVERE, null, exception);
         }
     }
 }
